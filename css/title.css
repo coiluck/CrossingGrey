@@ -1,0 +1,102 @@
+/* 基本設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  min-height: 100%;
+}
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+
+/* フォント設定 */
+@font-face {
+  font-family: 'bokor'; 
+  src: url('../fonts/Bokor-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'yujimai';
+  src: url('../fonts/YujiMai-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'melete';
+  src: url('../fonts/Melete-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+/* タイトル部分 */
+#modal-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: hidden;
+}
+.title-background {
+  width: 100%;
+  height: 100%;
+}
+.title-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#title-container {
+  position: absolute;
+  top: 30%;
+  color: #ddd;
+  text-shadow: 4px 2px 8px rgba(224, 224, 224, 0.8);
+  text-align: center;
+  width: 100%;
+}
+#title-JP {
+  font-family: "yujimai", serif;
+  font-size: 1.5rem;
+}
+#title-EN {
+  font-family: 'bokor', serif;
+  font-size: 1.2rem;
+  letter-spacing: .5px;
+}
+#start-button {
+  position: absolute;
+  top: 100%;
+  font-family: "melete", serif;
+  color: #ddd;
+  background: transparent;
+  cursor: pointer;
+}
+/* 下線アニメーション */
+#start-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ddd;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);;
+}
+#start-button.active::after {
+  width: 100%;
+}
+/* 別モーダルのフォント設定用 */

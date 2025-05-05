@@ -1,0 +1,103 @@
+.fadein-modal { 
+  animation: fadeIn 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeout-modal {
+  animation: fadeOut 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fadein-title {
+  animation: fadeInTitle 5s;
+  animation-fill-mode: both;
+}
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    top: 30%
+  }
+  100% {
+    opacity: 1;
+    top: 25%;
+  }
+}
+.fadein-title-button {
+  animation: fadeInTitleButton 3s;
+  animation-fill-mode: both;
+}
+@keyframes fadeInTitleButton {
+  0% {
+    opacity: 0;
+    top: 90%;
+  }
+  100% {
+    opacity: 1;
+    top: 85%;
+  }
+}
+.fast-fadein {  /* もっとも一般的なフェードイン */
+  animation: fastFadeIn .5s;
+  animation-fill-mode: both;
+}
+@keyframes fastFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fast-fadeout {  /* もっとも一般的なフェードアウト */
+  animation: fastFadeOut .5s;
+  animation-fill-mode: both;
+}
+@keyframes fastFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fast-fadein-text { 
+  animation: fastFadeInText .5s;
+  animation-fill-mode: both;
+}
+@keyframes fastFadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .7;
+  }
+}
+.fast-fadeout-text { 
+  animation: fastFadeOutText .5s;
+  animation-fill-mode: both;
+}
+@keyframes fastFadeOutText {
+  0% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.no-display {
+  display: none !important;
+}
