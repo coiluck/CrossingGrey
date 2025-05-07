@@ -118,6 +118,7 @@ function toOpening() {
   setTimeout(() => {
     document.getElementById('modal-title').classList.add('no-display');
     // オープニングへ移行
+    document.getElementById('modal-opening').classList.remove('no-display');
     document.getElementById('modal-opening').classList.add('fadein-modal');
   }, 1000);
 }
