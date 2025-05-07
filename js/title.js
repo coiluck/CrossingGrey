@@ -121,4 +121,48 @@ function toOpening() {
     document.getElementById('modal-opening').classList.remove('no-display');
     document.getElementById('modal-opening').classList.add('fadein-modal');
   }, 1000);
+  setTimeout(() => {
+    // オープニングのスキップボタンを表示
+    const hasSeenOpeningStory = localStorage.getItem("hasSeenOpeningStory");
+      if (hasSeenOpeningStory === "true") {
+        // Skip表示
+        console.log("感知しました: オープニング - 複数回目");
+        document.getElementById("skip-window").classList.remove('no-display');
+        document.getElementById("skip-window").classList.add('fadein-modal');
+      } else {
+        console.log("感知しました: オープニング - 初回");
+      }
+  }, 1500);
 }
+
+// Skipボタンの処理
+const skipCansel = function(event){
+  // イベントの伝播を防ぐ
+  event.stopPropagation();
+  // スキップをキャンセル
+  console.log("選択しました: スキップしない");
+  document.getElementById("skip-button").removeEventListener('click', skipExecute); // イベントリスナーを解除
+  document.getElementById("skip-cancel").removeEventListener('click', skipCansel); // イベントリスナーを解除
+  document.getElementById("skip-window").classList.add('fadeout-modal'); // フェードアウト開始
+  setTimeout(function() { 
+    document.getElementById("skip-window").style.display = "none"; 
+  }, 1000);
+}
+const skipExecute = function(event){
+  // イベントの伝播を防ぐ
+  event.stopPropagation();
+  // スキップする場合
+  console.log("選択しました: スキップする");
+  document.getElementById("skip-button").removeEventListener("click", skipExecute); // イベントリスナーを解除
+  document.getElementById("skip-cancel").removeEventListener("click", skipCansel); // イベントリスナーを解除
+  // 見えてるのはフェードアウト
+  document.getElementById("modal-opening").classList.add("fadeout-modal"); // フェードアウト開始
+  setTimeout(function(){ 
+    document.getElementById("modal-opening").style.display = "none"; 
+  }, 1000);
+  // 次の画面を表示
+  // 後で書く
+}
+
+document.getElementById("skip-cancel").addEventListener("click", skipCansel);
+document.getElementById("skip-button").addEventListener("click", skipExecute);
