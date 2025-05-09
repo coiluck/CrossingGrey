@@ -110,7 +110,32 @@
   object-fit: cover;
 }
 
-/* デバッグ用 */
-#western-scrapyard-map area {
+
+.seekgame-items {
+  position: absolute;
+  width: 100px;
+  height: 100px;
   background-color: aqua;
+  opacity: 0.5;
+  z-index: 1;
 }
+/* 西 */
+#western-tire-area {
+  top: 70%;
+  left: 35%;
+}
+#western-saddle-area {
+  top: 50%;
+  left: 50%;
+}
+#western-metal-area {
+  top: 50%;
+  left: 50%;
+} 
+#western-light-area {
+  top: 50%;
+  left: 50%;
+}
+
+
+
