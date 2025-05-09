@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./css/title.css">
   <link rel="stylesheet" href="./css/opening.css">
   <link rel="stylesheet" href="./css/seekgame.css">
-  <link rel="icon" href="./image/favicon.ico">
+  <link rel="icon" href="./images/favicon.ico">
 </head>
 <body>
 
@@ -50,16 +50,72 @@
     </div>
   </div>
 
-  <div class="modal-seekgame" id="modal-seekgame">
-    <!--ゲーム画面-->
-    <div class="game-background">
+  <div class="modal-seekgame no-display" id="modal-seekgame">
+    <!-- ゲーム画面 -->
+    <div id="seekgame-map-image">
+      <!-- これをz-indexで最前面に -->
       <img src="./images/pittsburgh-map.avif">
+      <!-- 現在地アイコン -->
+      <div id="seekgame-pin-western" class="seekgame-pin">
+        <img src="./images/pin.avif">
+      </div>
+      <div id="seekgame-pin-eastern" class="seekgame-pin">
+        <img src="./images/pin.avif">
+      </div>
     </div>
-    <div class
+    <!-- スクラップ置き場・西 -->
+    <div id="seekgame-western-scrapyard" class="no-display">
+      <!-- 背景画像 -->
+     <img src="./images/pittsburgh.avif" alt="スクラップ置き場・西" usemap="#western-scrapyard-map" id="western-background-img">
+     <!-- 当たり判定 -->
+     <map name="western-scrapyard-map" id="western-scrapyard-map">
+        <!-- タイヤの座標 -->
+        <area id="western-tire-area" shape="circle" coords="300,500,50" alt="タイヤ">
+        <!-- 金属の座標 -->
+        <area id="western-metal-area" shape="circle" coords="700,350,40" alt="金属片">
+        <!-- 工具の座標 -->
+        <area id="western-tool-area" shape="circle" coords="1050,500,45" alt="工具">
+     </map>
+    </div>
+    <!-- スクラップ置き場・東 -->
+    <div id="seekgame-eastern-scrapyard" class="no-display">
+      <!-- 背景画像 -->
+      <img src="./images/eastern-scrapyard.avif" alt="スクラップ置き場・東" usemap="#eastern-scrapyard-map" id="eastern-background-img">
+      <!-- 当たり判定 -->
+      <map name="eastern-scrapyard-map" id="eastern-scrapyard-map">
+        <!-- 機械部品の座標 -->
+        <area id="eastern-parts-area" shape="circle" coords="400,450,60" alt="機械部品">
+        <!-- 電子基板の座標 -->
+        <area id="eastern-circuit-area" shape="circle" coords="800,300,45" alt="電子基板">
+        <!-- バッテリーの座標 -->
+        <area id="eastern-battery-area" shape="circle" coords="950,550,40" alt="バッテリー">
+      </map>
+    </div>
+    <!-- 説明-->
+    <div id="seekgame-description">
+      <p>廃材置き場に向かおう！</p>
+    </div>
+    <!-- アイテム画面 -->
+    <div id="seekgame-inventory" class="no-display">
+      <p>バイクの部品を探そう！</p>
+      <ul id="seekgame-item-list">
+        <li id="seekgame-tire">タイヤ: 0/2</li>
+        <li id="seekgame-saddle">サドル: 0/1</li>
+        <li id="seekgame-muffler">マフラー: 0/1</li>
+        <li id="seekgame-handle">鉄: 0/3</li>
+        <li id="seekgame-chain">ライト: 0/1</li>
+      </ul>
+    </div>
+    <!-- メッセージ画面 -->
+    <div id="seekgame-message" class="no-display">
+      <p>{$item}を獲得した！</p>
+    </div>
+    <!--マップボタン-->
   </div>
 
   <!--jsファイル-->
   <script src="./js/title.js"></script>
   <script src="./js/opening.js"></script>
+  <script src="./js/seekgame.js"></script>
 </body>
 </html>

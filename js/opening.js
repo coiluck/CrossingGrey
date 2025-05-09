@@ -1,3 +1,4 @@
+// シーン1（工場内部）
 const OpeningTextArray1 = [
   { text: "111"},
   { text: "222" },
@@ -25,12 +26,21 @@ const OpeningTextArray1 = [
   }
 ];
 
-// バイクを作った後
+// シーン2（工場内部）（部品を集めた後）
 const OpeningTextArray2 = [
   { text: "999"},
   { text: "000" },
   { text: "111" },
 ];
+
+// シーン3（工場の外）（バイクを作った後）
+const OpeningTextArray3 = [
+  { text: "222" },
+  { text: "333" },
+  { text: "444" },
+];
+
+// 1 -> seekgame -> 2 -> 3 の順
 
 const modalOpening = document.getElementById('modal-opening');
 const textArea = document.getElementById('opening-text');
@@ -101,12 +111,17 @@ const openingClick = function () {
           // ロード開始 (onloadトリガー)
           tempImage.src = newImageSrc;
           isProcessing = false; // 処理完了
-        } else {
-          console.error("オープニング2の配列が無効です");
-          isProcessing = false;
         }
       } else if (nextArrayIndex === 2) { 
-        // OpeningTextArray2 -> ルート選択へ
+        // OpeningTextArray2 -> seekgameへ
+        console.log("seekgameへ移行");
+        modalOpening.classList.remove("fadein-modal");
+        modalOpening.classList.add("fadeout-modal");
+        setTimeout(() => {
+          modalOpening.classList.add("no-display");
+          document.getElementById("modal-seekgame").classList.remove("no-display");
+          document.getElementById("modal-seekgame").classList.add("fadein-modal");
+        }, 1000);
       }
     }, 1000); // フェードアウトの時間を1秒に設定
   }
